@@ -1,38 +1,50 @@
-# Projet Final : Analyse Avancée de Données Agricoles et Tableau de Bord Interactif
+# Tableau de Bord Agricole Interactif
 
-## Description
-Ce projet vise à créer un tableau de bord interactif pour l'analyse temporelle et spatiale des données agricoles. L'objectif est d'intégrer des données historiques avec des informations de monitoring en temps réel, pour fournir des analyses approfondies et des prédictions utiles à la gestion agricole.
+## Description du Projet
+Ce projet consiste en la création d’un système complet et interactif pour l'analyse avancée des données agricoles. Il intègre des données temporelles et spatiales provenant de multiples sources pour offrir des visualisations, des analyses de tendances, et des prédictions des risques agricoles.
 
-### Données utilisées
-Le projet s'appuie sur plusieurs sources de données :
-- *monitoring_cultures.csv* : Données de suivi des cultures (NDVI, LAI, stress hydrique, etc.).
-- *meteo_detaillee.csv* : Données météorologiques horaires (température, humidité, précipitations, etc.).
-- *sols.csv* : Caractéristiques physico-chimiques des sols.
-- *historique_rendements.csv* : Historique des rendements annuels par parcelle.
-
-### Fonctionnalités principales
-1. *Analyse des données agricoles multi-sources* : Intégration et gestion des données.
-2. *Visualisations interactives* : Graphiques temporels et cartes spatiales via Bokeh et Folium.
-3. *Indicateurs de performance* : Calcul des tendances, métriques de risque, et analyses avancées.
-4. *Génération de rapports automatisés* : Export en PDF des résultats et recommandations.
-5. *Prédiction des risques agricoles* : Modèles basés sur des méthodes statistiques et machine learning.
+### Objectifs
+L'objectif est de fournir un outil d'aide à la décision aux agriculteurs et aux gestionnaires agricoles pour :
+- Suivre en temps réel les cultures à l'aide de métriques clés comme le NDVI, le stress hydrique, et la biomasse estimée.
+- Identifier les tendances historiques des rendements agricoles.
+- Prévoir les risques et les facteurs limitants grâce à des analyses avancées.
+- Visualiser les données sous forme de graphiques et de cartes interactives.
 
 ---
 
-## Installation
+## Fonctionnalités
 
-### Prérequis
-- Python 3.8 ou supérieur.
-- Modules nécessaires (installables via pip):
-  bash
-  pip install folium pandas numpy bokeh pandoc python-docx scikit-learn plotly
-  pip install streamlit geopandas seaborn statsmodels
-  
-- Outils externes :
-  - *pandoc* et *xelatex* pour la génération de rapports PDF.
-  - Minimum 8 Go de RAM pour les traitements.
+### 1. Gestion des Données
+- **Intégration Multi-Sources** : Données sur les cultures, les sols, les conditions météorologiques, et les rendements historiques.
+- **Validation des Données** : Vérification de la cohérence temporelle et gestion des données manquantes.
+- **Préparation des Caractéristiques** : Fusion des données pour une analyse enrichie.
 
-### Structure du projet
+### 2. Analyses Temporelles
+- Identification des tendances historiques des rendements.
+- Analyse des patterns temporels pour des parcelles spécifiques.
+- Détection des facteurs influençant les rendements.
+
+### 3. Visualisations Interactives
+- **Cartes Interactives (Folium)** :
+  - Visualisation des rendements historiques.
+  - Cartes de chaleur pour les zones à risque.
+  - Évolution du NDVI sur une carte.
+- **Graphiques Interactifs (Bokeh)** :
+  - Historique des rendements avec annotations.
+  - Évolution temporelle du NDVI.
+  - Matrice de stress combinant stress hydrique et météorologique.
+
+### 4. Génération de Rapports
+- Création de rapports détaillés par parcelle (historique, analyses actuelles, recommandations).
+- Exportation au format PDF pour des présentations professionnelles.
+
+### 5. Prédiction des Risques
+- Identification des zones sensibles aux conditions météorologiques défavorables.
+- Calcul d'indices de risque basés sur des seuils paramétrables.
+
+---
+
+## Structure du Projet
 plaintext
 projet_agricole/
 │
@@ -54,29 +66,127 @@ projet_agricole/
 └── reports/
     └── templates/
 
+---
 
-Pour éviter les conflits de dépendances, créez un environnement virtuel avec :
-bash
-python -m venv venv
-source venv/bin/activate   # ou "venv\Scripts\activate" sous Windows
+## Données Utilisées
 
+### `monitoring_cultures.csv`
+- Météo : NDVI, LAI, stress hydrique, biomasse estimée.
+- Localisation des parcelles avec latitude et longitude.
+
+### `meteo_detaillee.csv`
+- Données horaires : température, humidité, précipitations, rayonnement solaire, direction et vitesse du vent.
+
+### `sols.csv`
+- Caractéristiques physico-chimiques des sols : type de sol, capacité de rétention d’eau, teneur en nutriments.
+
+### `historique_rendements.csv`
+- Rendements annuels par parcelle, performances des cultures passées.
 
 ---
 
-## Utilisation
+## Installation
 
-1. *Chargement des données* :
-   Implémentez et utilisez les méthodes de data_manager.py pour intégrer les données.
-2. *Visualisations* :
-   - Utilisez dashboard.py pour des graphiques interactifs (via Bokeh).
-   - Employez map_visualization.py pour créer des cartes (via Folium).
-3. *Rapports* :
-   Génération de rapports automatisés avec report_generator.py.
+### 1. Prérequis
+- **Python 3.8 ou supérieur**
+- Liste des bibliothèques nécessaires :
+  ```bash
+  pip install folium pandas numpy bokeh scikit-learn plotly streamlit geopandas seaborn statsmodels
+  ```
+
+### 2. Configuration
+
+- **Clonez le dépôt GitHub** :
+
+    ```bash
+    git clone https://github.com/votre-utilisateur/projet-agricole.git
+    cd projet-agricole
+    ```
+
+- **Configurez un environnement virtuel** :
+
+    ```bash
+    python -m venv venv
+    source venv/bin/activate       # Sur macOS/Linux
+    venv\Scripts\activate         # Sur Windows
+    ```
+
+- **Installez les dépendances** :
+
+    ```bash
+    pip install -r requirements.txt
+    ```
 
 ---
 
-## Ressources
+### 3. Lancer le Projet
+
+- **Analyse Exploratoire** : Lancez le notebook Jupyter :
+
+    ```bash
+    jupyter notebook notebooks/analyses_exploratoires.ipynb
+    ```
+
+- **Tableau de Bord Streamlit** :
+
+    ```bash
+    streamlit run src/dashboard.py
+    ```
+
+---
+
+## Instructions d'Utilisation
+
+### Visualisations Interactives
+
+- Lancer les cartes et graphiques via `dashboard.py`.
+- Naviguer entre les couches interactives (rendements, NDVI, risques).
+
+### Génération de Rapports
+
+- Exécuter le module `report_generator.py` pour créer des rapports PDF.
+
+---
+
+## Exemple de Résultat
+
+### Carte Folium avec les rendements historiques :
+
+_(Capture d’écran à insérer)_
+
+### Graphique Bokeh montrant les tendances des rendements :
+
+_(Capture d’écran à insérer)_
+
+---
+
+## Contributions
+
+Les contributions sont les bienvenues ! Si vous souhaitez améliorer ce projet, suivez ces étapes :
+
+1. **Forkez le dépôt**.
+2. **Créez une branche pour vos modifications** :
+
+    ```bash
+    git checkout -b feature/nom-de-votre-feature
+    ```
+
+3. **Soumettez une pull request** avec une description détaillée de vos changements.
+
+---
+
+## Ressources Supplémentaires
+
 - [Documentation Folium](https://python-visualization.github.io/folium/)
 - [Documentation Bokeh](https://docs.bokeh.org/en/latest/)
-- [Documentation Pandoc](https://pandoc.org/MANUAL.html)
-- [Tutoriel Streamlit](https://docs.streamlit.io/)
+- [Documentation Pandas](https://pandas.pydata.org/)
+- [Documentation Streamlit](https://docs.streamlit.io/)
+
+---
+
+## Auteurs
+
+Ce projet a été développé par **Oussama El Ouazdi**, dans le cadre du programme **Master DSEF**.
+
+
+
