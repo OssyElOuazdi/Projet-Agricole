@@ -75,13 +75,6 @@ source venv/bin/activate   # ou "venv\Scripts\activate" sous Windows
 
 ---
 
-## Soumission
-- Hébergez le projet sur GitHub avec tout le code source et ce fichier README.
-- Rédigez un rapport PDF expliquant vos analyses, méthodes et résultats.
-- *Délai* : 12 janvier 2025.
-
----
-
 ## Ressources
 - [Documentation Folium](https://python-visualization.github.io/folium/)
 - [Documentation Bokeh](https://docs.bokeh.org/en/latest/)
