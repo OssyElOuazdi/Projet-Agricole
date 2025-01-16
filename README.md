@@ -148,18 +148,6 @@ projet_agricole/
 
 ---
 
-## Exemple de Résultat
-
-### Carte Folium avec les rendements historiques :
-
-_(Capture d’écran à insérer)_
-
-### Graphique Bokeh montrant les tendances des rendements :
-
-_(Capture d’écran à insérer)_
-
----
-
 ## Contributions
 
 Les contributions sont les bienvenues ! Si vous souhaitez améliorer ce projet, suivez ces étapes :
